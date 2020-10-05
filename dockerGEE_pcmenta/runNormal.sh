@@ -1,1 +1,1 @@
-docker run -it --rm  -v /home/lmentaschi/workspace/docker_gee_pcmenta/:/home/lmentaschi -u lmentaschi --workdir=/home/lmentaschi --name=gee gee_pcmenta bash
+docker run -it --rm  -v $HOME/workspace/docker_gee_pcmenta/:$HOME -u $USER --workdir=$HOME --name=gee gee_pcmenta bash
