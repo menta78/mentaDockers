@@ -17,6 +17,7 @@ RUN pip3 install earthengine-api
 RUN pip3 install --upgrade six>=1.13.0
 RUN pip3 install numpy
 RUN pip3 install scipy
+RUN pip3 install dateutils
 
 RUN rm -rf /root/.cache && apt-get clean all 
 
