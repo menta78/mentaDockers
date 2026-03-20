@@ -37,4 +37,9 @@ RUN printf '#!/bin/bash\necho "$@" >> /tmp/resolvectl.log\n' > /usr/bin/resolvec
 COPY forcepoint-client_2.5.2+jammy_amd64.deb /tmp/
 RUN dpkg -i /tmp/forcepoint-client_2.5.2+jammy_amd64.deb
 
+RUN wget --no-check-certificate -O /etc/apt/trusted.gpg.d/vscode.gpg "https://packages.microsoft.com/keys/microsoft.asc" \
+    && echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list \
+    && apt-get update -o Acquire::Check-Valid-Until=false --allow-insecure-repositories \
+    && apt-get -y install --allow-unauthenticated code
+
 CMD socat TCP-LISTEN:2222,reuseaddr,fork EXEC:/bin/bash,pty,stderr,setsid,sigint,sane,ctty
