@@ -15,7 +15,7 @@ RUN mkdir -p /var/lib/ucf/cache && touch /var/lib/ucf/hashfile
 RUN rm -f /etc/apt/apt.conf.d/docker-clean \
     && apt-get update -o Acquire::Check-Valid-Until=false --allow-insecure-repositories \
     && apt-get -y install --allow-unauthenticated \
-    wget curl socat vim iputils-ping \
+    wget curl socat vim iputils-ping git \
     libevent-2.1-7 \
     libevent-openssl-2.1-7 \
     libevent-pthreads-2.1-7 \
@@ -41,5 +41,7 @@ RUN wget --no-check-certificate -O /etc/apt/trusted.gpg.d/vscode.gpg "https://pa
     && echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list \
     && apt-get update -o Acquire::Check-Valid-Until=false --allow-insecure-repositories \
     && apt-get -y install --allow-unauthenticated code
+
+RUN apt-get -y install --allow-unauthenticated firefox
 
 CMD socat TCP-LISTEN:2222,reuseaddr,fork EXEC:/bin/bash,pty,stderr,setsid,sigint,sane,ctty
