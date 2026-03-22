@@ -8,4 +8,4 @@ docker run -it --rm \
   -u $USER \
   --workdir=$HOME \
   --name=dropbox \
-  dropbox_img bash -c "dropbox start -i && sleep infinity"
+  dropbox_img bash -c "DISPLAY= dropbox start -i && sleep infinity"
