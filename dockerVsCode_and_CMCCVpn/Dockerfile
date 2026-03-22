@@ -15,7 +15,7 @@ RUN mkdir -p /var/lib/ucf/cache && touch /var/lib/ucf/hashfile
 RUN rm -f /etc/apt/apt.conf.d/docker-clean \
     && apt-get update -o Acquire::Check-Valid-Until=false --allow-insecure-repositories \
     && apt-get -y install --allow-unauthenticated \
-    wget curl socat vim iputils-ping git \
+    wget curl socat vim iputils-ping git rsync \
     libevent-2.1-7 \
     libevent-openssl-2.1-7 \
     libevent-pthreads-2.1-7 \
