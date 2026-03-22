@@ -4,6 +4,7 @@ docker stop vscode 2>/dev/null
 docker rm vscode 2>/dev/null
 docker run -d \
   --privileged \
+  --shm-size=512m \
   --device=/dev/net/tun \
   -e DISPLAY=$DISPLAY \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
